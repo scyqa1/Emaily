@@ -19,17 +19,17 @@ class Mailer extends helper.Mail {
 
     formatAddresses(recipients){
         return recipients.map(({email}) => {
-            return new help.Email(email);
+            return new helper.Email(email);
         });
     }
 
     addClickTracking() {
-        const trackingSettings = new helper.trackingSettings();
-        const clickTracking = new helper.clickTracking(true, true);
-
+        const trackingSettings = new helper.TrackingSettings();
+        const clickTracking = new helper.ClickTracking(true, true);
+    
         trackingSettings.setClickTracking(clickTracking);
         this.addTrackingSettings(trackingSettings);
-    }
+      }
 
     addRecipients() {
         const personalize = new helper.Personalization();
